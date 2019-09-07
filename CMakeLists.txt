@@ -17,26 +17,18 @@ if(NOT hasParent)
 endif ()
 
 SET_MIN_VERSIONS()
-set(LibName 
+set(BaseInterfaceName render_basics)
+set(LibName ${BaseInterfaceName}_interface)
 project(${LibName})
 
 set(Interface
-		)
-
-set(Src
+		view.h
 		)
 
 set(Deps
-    al2o3_platform
+		al2o3_platform
+		al2o3_cmath
 		)
-ADD_LIB(${LibName} "${Interface}" "${Src}" "${Deps}")
+ADD_LINK_TIME_INTERFACE(${BaseInterfaceName} "${Interface}" "${Deps}")
 
-set( Tests
-		runner.cpp
-		)
-set( TestDeps
-		al2o3_catch2
-
-		utils_simple_logmanager)
-ADD_LIB_TESTS(${LibName} "${Interface}" "${Tests}" "${TestDeps}")
 
