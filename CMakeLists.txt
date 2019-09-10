@@ -24,6 +24,7 @@ project(${LibName})
 set(Interface
 		api.h
 		view.h
+		framebuffer.h
 		)
 
 set(Deps
