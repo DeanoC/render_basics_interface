@@ -22,6 +22,7 @@ set(LibName ${BaseInterfaceName}_interface)
 project(${LibName})
 
 set(Interface
+		api.h
 		view.h
 		)
 
