@@ -14,6 +14,12 @@ typedef struct Render_Globals {
 	float time;
 } Render_Globals;
 
+typedef enum Render_GraphicsQueueType {
+	RENDER_GQT_GRAPHICS,
+	RENDER_GQT_COMPUTE,
+	RENDER_GQT_BLITTER
+} Render_GraphicsQueueType;
+
 typedef struct Render_FrameBufferDesc {
 	void * platformHandle;						///< platform specific for the window/display (HWND etc.)
 	Render_QueueHandle queue;					///< queue present will be from
@@ -30,11 +36,9 @@ AL2O3_EXTERN_C void Render_RendererDestroy(Render_RendererHandle handle);
 
 AL2O3_EXTERN_C char const * const Render_RendererGetBackendName(Render_RendererHandle handle);
 AL2O3_EXTERN_C char const * const Render_RendererGetGPUName(Render_RendererHandle handle);
+AL2O3_EXTERN_C Render_QueueHandle Render_RendererGetPrimaryQueue(Render_RendererHandle ctx, Render_GraphicsQueueType queueType);
+AL2O3_EXTERN_C Render_CmdPoolHandle Render_RendererGetPrimaryCommandPool(Render_RendererHandle handle, Render_GraphicsQueueType queueType);
 
-AL2O3_EXTERN_C Render_FrameBufferHandle Render_FrameBufferCreate(
-		Render_RendererHandle handle,
-		Render_FrameBufferDesc const* desc
-);
-
+AL2O3_EXTERN_C Render_FrameBufferHandle Render_FrameBufferCreate(Render_RendererHandle handle,Render_FrameBufferDesc const* desc);
 AL2O3_EXTERN_C void Render_FrameBufferDestroy(Render_FrameBufferHandle handle);
 
