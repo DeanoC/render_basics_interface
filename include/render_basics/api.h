@@ -32,13 +32,15 @@ typedef struct Render_FrameBufferDesc {
 } Render_FrameBufferDesc;
 
 AL2O3_EXTERN_C Render_RendererHandle Render_RendererCreate();
-AL2O3_EXTERN_C void Render_RendererDestroy(Render_RendererHandle handle);
 
 AL2O3_EXTERN_C char const * const Render_RendererGetBackendName(Render_RendererHandle handle);
 AL2O3_EXTERN_C char const * const Render_RendererGetGPUName(Render_RendererHandle handle);
 AL2O3_EXTERN_C Render_QueueHandle Render_RendererGetPrimaryQueue(Render_RendererHandle ctx, Render_GraphicsQueueType queueType);
 AL2O3_EXTERN_C Render_CmdPoolHandle Render_RendererGetPrimaryCommandPool(Render_RendererHandle handle, Render_GraphicsQueueType queueType);
 
+AL2O3_EXTERN_C void Render_RendererDestroy(Render_RendererHandle handle);
 AL2O3_EXTERN_C Render_FrameBufferHandle Render_FrameBufferCreate(Render_RendererHandle handle,Render_FrameBufferDesc const* desc);
 AL2O3_EXTERN_C void Render_FrameBufferDestroy(Render_FrameBufferHandle handle);
 
+
+AL2O3_EXTERN_C void Render_CmdBindRenderTargets(Render_CmdHandle cmd, uint32_t count, Render_RenderTargetHandle* targets, bool clear, bool setViewports, bool setScissors);
