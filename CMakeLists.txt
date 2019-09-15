@@ -23,6 +23,7 @@ project(${LibName})
 
 set(Interface
 		api.h
+		cmd.h
 		view.h
 		framebuffer.h
 		)
