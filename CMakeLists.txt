@@ -31,6 +31,7 @@ set(Interface
 set(Deps
 		al2o3_platform
 		al2o3_cmath
+		input_basic_interface
 		)
 ADD_LINK_TIME_INTERFACE(${BaseInterfaceName} "${Interface}" "${Deps}")
 

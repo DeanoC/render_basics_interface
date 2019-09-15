@@ -9,6 +9,7 @@
 
 #include "al2o3_platform/platform.h"
 #include "tiny_imageformat/tinyimageformat_base.h"
+#include "input_basic/input.h"
 
 typedef struct Render_Renderer * Render_RendererHandle;
 typedef struct Render_FrameBuffer * Render_FrameBufferHandle;
@@ -31,7 +32,8 @@ typedef enum Render_GraphicsQueueType {
 
 struct Render_FrameBufferDesc; // forward decl. Definition in framebuffer.h
 
-AL2O3_EXTERN_C Render_RendererHandle Render_RendererCreate();
+// for debugging input context is required. if null renderer input will be disabled
+AL2O3_EXTERN_C Render_RendererHandle Render_RendererCreate(InputBasic_ContextHandle input);
 
 // renderer functions
 AL2O3_EXTERN_C char const *Render_RendererGetBackendName(Render_RendererHandle renderer);
