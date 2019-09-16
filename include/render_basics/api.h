@@ -54,10 +54,10 @@ AL2O3_EXTERN_C void Render_FrameBufferDestroy(Render_RendererHandle renderer, Re
 // stock interface
 
 typedef enum Render_StockBlendType {
-	Render_SBT_Opaque, // opaque destination is replaced, single render targets
-	Render_SBT_PorterDuff, // classic alpha blend, single render target
-	Render_SBT_Additive, // src + dest all channels, single render target
-	Render_SBT_PorterDuffPM, // combined blend + add. useful for particles
+	Render_SBT_OPAQUE, // opaque destination is replaced, single render targets
+	Render_SBT_PORTER_DUFF, // classic alpha blend, single render target
+	Render_SBT_ADDITIVE, // src + dest all channels, single render target
+	Render_SBT_PM_PORTER_DUFF, // pre multiple porter duff. useful for particles
 
 	Render_SSB_COUNT
 } Render_StockBlendType;
@@ -106,8 +106,8 @@ AL2O3_EXTERN_C Render_BlendStateHandle Render_GetStockBlendState(Render_Renderer
 																																 Render_StockBlendType stock);
 AL2O3_EXTERN_C Render_DepthStateHandle Render_GetStockDepthState(Render_RendererHandle renderer,
 																																 Render_StockDepthStateType stock);
-AL2O3_EXTERN_C Render_RasteriserStateHandle Render_GetStockRasterState(Render_RendererHandle renderer,
-																																			 Render_StockRasterState stock);
+AL2O3_EXTERN_C Render_RasteriserStateHandle Render_GetStockRasterisationState(Render_RendererHandle renderer,
+																																							Render_StockRasterState stock);
 AL2O3_EXTERN_C Render_SamplerHandle Render_GetStockSampler(Render_RendererHandle renderer,
 																													 Render_StockSamplerType stock);
 AL2O3_EXTERN_C Render_VertexLayoutHandle Render_GetStockVertexLayout(Render_RendererHandle renderer,
