@@ -15,6 +15,7 @@ typedef struct Render_Renderer * Render_RendererHandle;
 typedef struct Render_FrameBuffer * Render_FrameBufferHandle;
 
 typedef struct Render_BlendState *Render_BlendStateHandle;
+typedef struct Render_Buffer *Render_BufferHandle;
 typedef struct Render_CmdPool * Render_CmdPoolHandle;
 typedef struct Render_Cmd * Render_CmdHandle;
 typedef struct Render_DepthState *Render_DepthStateHandle;
@@ -31,6 +32,9 @@ typedef enum Render_GraphicsQueueType {
 } Render_GraphicsQueueType;
 
 struct Render_FrameBufferDesc; // forward decl. Definition in framebuffer.h
+struct Render_BufferVertexDesc; // forward decl. Definition in buffer.h
+struct Render_BufferIndexDesc; // forward decl. Definition in buffer.h
+struct Render_BufferUniformDesc; // forward decl. Definition in buffer.h
 
 // for debugging input context is required. if null renderer input will be disabled
 AL2O3_EXTERN_C Render_RendererHandle Render_RendererCreate(InputBasic_ContextHandle input);
@@ -47,9 +51,17 @@ AL2O3_EXTERN_C Render_CmdPoolHandle Render_RendererGetPrimaryCommandPool(Render_
 AL2O3_EXTERN_C Render_FrameBufferHandle Render_FrameBufferCreate(Render_RendererHandle renderer,
 																																 Render_FrameBufferDesc const *desc);
 
+AL2O3_EXTERN_C Render_BufferHandle Render_BufferCreateVertex(Render_RendererHandle renderer,
+																														 Render_BufferVertexDesc const *desc);
+AL2O3_EXTERN_C Render_BufferHandle Render_BufferCreateIndex(Render_RendererHandle renderer,
+																														Render_BufferIndexDesc const *desc);
+AL2O3_EXTERN_C Render_BufferHandle Render_BufferCreateUniform(Render_RendererHandle renderer,
+																															Render_BufferUniformDesc const *desc);
+
 // destruction functions
 AL2O3_EXTERN_C void Render_RendererDestroy(Render_RendererHandle renderer);
 AL2O3_EXTERN_C void Render_FrameBufferDestroy(Render_RendererHandle renderer, Render_FrameBufferHandle framebuffer);
+AL2O3_EXTERN_C void Render_BufferDestroy(Render_RendererHandle renderer, Render_BufferHandle buffer);
 
 // stock interface
 

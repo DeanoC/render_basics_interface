@@ -14,6 +14,7 @@ typedef struct Render_FrameBufferDesc {
 	TinyImageFormat depthFormat;        ///< swap chain depth format, UNDEFINED == none
 
 	bool embeddedImgui; ///< Do you want an imgui binding created and handled ?
+	bool visualDebugTarget; ///< do you want visual debug calls to appear here?
 
 } Render_FrameBufferDesc;
 
