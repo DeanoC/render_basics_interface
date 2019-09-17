@@ -20,3 +20,4 @@ typedef struct Render_BufferUniformDesc {
 	uint32_t size; ///< total size in bytes this buffer can have
 	bool frequentlyUpdated; ///< if set 3 size 'frames' space to allow efficient updates
 } Render_BufferUniformDesc;
+

@@ -18,10 +18,6 @@ typedef struct Render_FrameBufferDesc {
 
 } Render_FrameBufferDesc;
 
-AL2O3_EXTERN_C Render_CmdHandle Render_FrameBufferNewFrame(Render_FrameBufferHandle frameBuffer,
-																													 Render_RenderTargetHandle *outRenderTarget,
-																													 Render_RenderTargetHandle *outDepthTarget);
-
 // if has an embeddedImgui this should be done before Imgui::NewFrame
 AL2O3_EXTERN_C void Render_FrameBufferUpdate(Render_FrameBufferHandle frameBuffer,
 																						 uint32_t width,
@@ -29,7 +25,17 @@ AL2O3_EXTERN_C void Render_FrameBufferUpdate(Render_FrameBufferHandle frameBuffe
 																						 float backingScaleX, float backingScaleY,
 																						 double deltaMS);
 
+// must be called at the begining of a frame
+AL2O3_EXTERN_C void Render_FrameBufferNewFrame(Render_FrameBufferHandle frameBuffer);
+
+// these need to be called after new frame is started as the targets will change!
+AL2O3_EXTERN_C Render_RenderTargetHandle Render_FrameBufferColourTarget(Render_FrameBufferHandle frameBuffer);
+AL2O3_EXTERN_C Render_RenderTargetHandle Render_FrameBufferDepthTarget(Render_FrameBufferHandle frameBuffer);
+
+AL2O3_EXTERN_C Render_GraphicsEncoderHandle Render_FrameBufferGraphicsEncoder(Render_FrameBufferHandle frameBuffer);
+
 AL2O3_EXTERN_C void Render_FrameBufferPresent(Render_FrameBufferHandle frameBuffer);
 
 AL2O3_EXTERN_C TinyImageFormat Render_FrameBufferColourFormat(Render_FrameBufferHandle frameBuffer);
+// will return TinyImageFormat_UNDEFINED if this framebuffer doesn't have a depth buffer
 AL2O3_EXTERN_C TinyImageFormat Render_FrameBufferDepthFormat(Render_FrameBufferHandle frameBuffer);

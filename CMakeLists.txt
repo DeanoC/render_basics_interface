@@ -23,10 +23,12 @@ project(${LibName})
 
 set(Interface
 		api.h
+		blitencoder.h
 		buffer.h
-		cmd.h
+		computeencoder.h
 		view.h
 		framebuffer.h
+		graphicsencoder.h
 		)
 
 set(Deps
