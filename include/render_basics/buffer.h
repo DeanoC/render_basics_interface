@@ -17,7 +17,15 @@ typedef struct Render_BufferIndexDesc {
 } Render_BufferIndexDesc;
 
 typedef struct Render_BufferUniformDesc {
-	uint32_t size; ///< total size in bytes this buffer can have
+	uint64_t size; ///< total size in bytes this buffer can have
 	bool frequentlyUpdated; ///< if set 3 size 'frames' space to allow efficient updates
 } Render_BufferUniformDesc;
 
+typedef struct Render_BufferUpdateDesc {
+	void const *data;
+	uint64_t dstOffset;
+	uint64_t size;    // If 0, uses size of pBuffer
+} Render_BufferUpdateDesc;
+
+// helper that handle the upload of buffers managing queues etc
+AL2O3_EXTERN_C void Render_BufferUpload(Render_BufferHandle buffer, Render_BufferUpdateDesc const *update);

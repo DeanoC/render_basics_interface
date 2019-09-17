@@ -25,6 +25,7 @@ typedef struct Render_GraphicsEncoder *Render_GraphicsEncoderHandle;
 typedef struct Render_Queue * Render_QueueHandle;
 typedef struct Render_RasteriserState *Render_RasteriserStateHandle;
 typedef struct Render_RenderTarget *Render_RenderTargetHandle;
+typedef struct Render_RootSignature *Render_RootSignatureHandle;
 typedef struct Render_Sampler *Render_SamplerHandle;
 typedef struct Render_Texture *Render_TextureHandle;
 typedef struct Render_VertexLayout *Render_VertexLayoutHandle;
@@ -34,6 +35,7 @@ typedef enum Render_QueueType {
 	Render_QT_COMPUTE,
 	Render_QT_BLITTER
 } Render_QueueType;
+
 
 struct Render_FrameBufferDesc; // forward decl. Definition in framebuffer.h
 struct Render_BufferVertexDesc; // forward decl. Definition in buffer.h
@@ -79,14 +81,14 @@ AL2O3_EXTERN_C void Render_BlitEncoderDestroy(Render_RendererHandle renderer, Re
 
 // stock interface
 
-typedef enum Render_StockBlendType {
-	Render_SBT_OPAQUE, // opaque destination is replaced, single render targets
-	Render_SBT_PORTER_DUFF, // classic alpha blend, single render target
-	Render_SBT_ADDITIVE, // src + dest all channels, single render target
-	Render_SBT_PM_PORTER_DUFF, // pre multiple porter duff. useful for particles
+typedef enum Render_StockBlendStateType {
+	Render_SBS_OPAQUE, // opaque destination is replaced, single render targets
+	Render_SBS_PORTER_DUFF, // classic alpha blend, single render target
+	Render_SBS_ADDITIVE, // src + dest all channels, single render target
+	Render_SBS_PM_PORTER_DUFF, // pre multiple porter duff. useful for particles
 
-	Render_SSB_COUNT
-} Render_StockBlendType;
+	Render_SBS_COUNT
+} Render_StockBlendStateType;
 
 typedef enum Render_StockDepthStateType {
 	Render_SDS_IGNORE, // complete ignore (no read or write) any depth buffer
@@ -129,7 +131,7 @@ typedef enum Render_StockVertexLayouts {
 } Render_StockVertexLayouts;
 
 AL2O3_EXTERN_C Render_BlendStateHandle Render_GetStockBlendState(Render_RendererHandle renderer,
-																																 Render_StockBlendType stock);
+																																 Render_StockBlendStateType stock);
 AL2O3_EXTERN_C Render_DepthStateHandle Render_GetStockDepthState(Render_RendererHandle renderer,
 																																 Render_StockDepthStateType stock);
 AL2O3_EXTERN_C Render_RasteriserStateHandle Render_GetStockRasterisationState(Render_RendererHandle renderer,
