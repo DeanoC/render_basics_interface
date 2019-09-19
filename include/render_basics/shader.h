@@ -13,8 +13,8 @@ typedef enum Render_ShaderType {
 	Render_ST_TESSCONTROLSHADER,
 	Render_ST_TESSEVALUATIONSHADER,
 
-	Render_ST_TASKSHADER,
-	Render_ST_MESHSHADER,
+	//	Render_ST_TASKSHADER,
+	//	Render_ST_MESHSHADER,
 } Render_ShaderType;
 
 typedef struct Render_ShaderObjectDesc {
@@ -22,9 +22,4 @@ typedef struct Render_ShaderObjectDesc {
 	VFile_Handle file;
 	char const *entryPoint;
 } Render_ShaderObjectDesc;
-
-typedef struct Render_ShaderDesc {
-	uint32_t count;
-	Render_ShaderObjectHandle *shaders;
-} Render_ShaderDesc;
 

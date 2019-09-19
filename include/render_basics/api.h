@@ -77,7 +77,8 @@ AL2O3_EXTERN_C Render_BlitEncoderHandle Render_BlitEncoderCreate(Render_Renderer
 AL2O3_EXTERN_C Render_ShaderObjectHandle Render_ShaderObjectCreate(Render_RendererHandle renderer,
 																																	 Render_ShaderObjectDesc const *desc);
 AL2O3_EXTERN_C Render_ShaderHandle Render_ShaderCreate(Render_RendererHandle renderer,
-																																	 Render_ShaderDesc const *desc);
+																											 uint32_t count,
+																											 Render_ShaderObjectHandle *shaderObjects);
 
 // destruction functions
 AL2O3_EXTERN_C void Render_RendererDestroy(Render_RendererHandle renderer);
@@ -86,7 +87,7 @@ AL2O3_EXTERN_C void Render_BufferDestroy(Render_RendererHandle renderer, Render_
 AL2O3_EXTERN_C void Render_GraphicsEncoderDestroy(Render_RendererHandle renderer, Render_GraphicsEncoderHandle buffer);
 AL2O3_EXTERN_C void Render_ComputeEncoderDestroy(Render_RendererHandle renderer, Render_ComputeEncoderHandle buffer);
 AL2O3_EXTERN_C void Render_BlitEncoderDestroy(Render_RendererHandle renderer, Render_BlitEncoderHandle buffer);
-AL2O3_EXTERN_C void Render_ShaderObjectDestroy(Render_RendererHandle renderer, Render_ShaderObjectHandle shader);
+AL2O3_EXTERN_C void Render_ShaderObjectDestroy(Render_RendererHandle renderer, Render_ShaderObjectHandle shaderObject);
 AL2O3_EXTERN_C void Render_ShaderDestroy(Render_RendererHandle renderer, Render_ShaderHandle shader);
 
 // stock interface
