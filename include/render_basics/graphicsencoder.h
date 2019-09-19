@@ -30,3 +30,8 @@ AL2O3_EXTERN_C void Render_GraphicsEncoderSetScissor(Render_GraphicsEncoderHandl
 AL2O3_EXTERN_C void Render_GraphicsEncoderSetViewport(Render_GraphicsEncoderHandle encoder,
 																											Math_Vec4F_t rect,
 																											Math_Vec2F_t depth);
+AL2O3_EXTERN_C void Render_GraphicsEncoderBindDescriptors(Render_GraphicsEncoderHandle encoder,
+																								Render_DescriptorBinderHandle descriptorBinder,
+																								Render_RootSignatureHandle rootSignature,
+																								uint32_t numDescriptors,
+																								Render_DescriptorDesc *desc);

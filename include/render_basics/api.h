@@ -11,22 +11,25 @@
 #include "tiny_imageformat/tinyimageformat_base.h"
 #include "input_basic/input.h"
 
-typedef struct Render_Renderer * Render_RendererHandle;
-typedef struct Render_FrameBuffer * Render_FrameBufferHandle;
+typedef struct Render_Renderer *Render_RendererHandle;
+typedef struct Render_FrameBuffer *Render_FrameBufferHandle;
 
 typedef struct Render_BlendState *Render_BlendStateHandle;
 typedef struct Render_BlitEncoder *Render_BlitEncoderHandle;
 typedef struct Render_Buffer *Render_BufferHandle;
-typedef struct Render_CmdPool * Render_CmdPoolHandle;
-typedef struct Render_Cmd * Render_CmdHandle;
+typedef struct Render_CmdPool *Render_CmdPoolHandle;
+typedef struct Render_Cmd *Render_CmdHandle;
 typedef struct Render_ComputeEncoder *Render_ComputeEncoderHandle;
 typedef struct Render_DepthState *Render_DepthStateHandle;
+typedef struct Render_DescriptorBinder *Render_DescriptorBinderHandle;
 typedef struct Render_GraphicsEncoder *Render_GraphicsEncoderHandle;
-typedef struct Render_Queue * Render_QueueHandle;
+typedef struct Render_Queue *Render_QueueHandle;
 typedef struct Render_RasteriserState *Render_RasteriserStateHandle;
 typedef struct Render_RenderTarget *Render_RenderTargetHandle;
 typedef struct Render_RootSignature *Render_RootSignatureHandle;
 typedef struct Render_Sampler *Render_SamplerHandle;
+typedef struct Render_ShaderObject *Render_ShaderObjectHandle;
+typedef struct Render_Shader *Render_ShaderHandle;
 typedef struct Render_Texture *Render_TextureHandle;
 typedef struct Render_VertexLayout *Render_VertexLayoutHandle;
 
@@ -36,11 +39,12 @@ typedef enum Render_QueueType {
 	Render_QT_BLITTER
 } Render_QueueType;
 
-
 struct Render_FrameBufferDesc; // forward decl. Definition in framebuffer.h
 struct Render_BufferVertexDesc; // forward decl. Definition in buffer.h
 struct Render_BufferIndexDesc; // forward decl. Definition in buffer.h
 struct Render_BufferUniformDesc; // forward decl. Definition in buffer.h
+struct Render_ShaderObjectDesc; // forward decl. Definition in shader.h
+struct Render_ShaderDesc; // forward decl. Definition in shader.h
 
 // for debugging input context is required. if null renderer input will be disabled
 AL2O3_EXTERN_C Render_RendererHandle Render_RendererCreate(InputBasic_ContextHandle input);
@@ -70,6 +74,10 @@ AL2O3_EXTERN_C Render_ComputeEncoderHandle Render_ComputeEncoderCreate(Render_Re
 																																			 Render_CmdPoolHandle cmdPoolHandle);
 AL2O3_EXTERN_C Render_BlitEncoderHandle Render_BlitEncoderCreate(Render_RendererHandle renderer,
 																																 Render_CmdPoolHandle cmdPoolHandle);
+AL2O3_EXTERN_C Render_ShaderObjectHandle Render_ShaderObjectCreate(Render_RendererHandle renderer,
+																																	 Render_ShaderObjectDesc const *desc);
+AL2O3_EXTERN_C Render_ShaderHandle Render_ShaderCreate(Render_RendererHandle renderer,
+																																	 Render_ShaderDesc const *desc);
 
 // destruction functions
 AL2O3_EXTERN_C void Render_RendererDestroy(Render_RendererHandle renderer);
@@ -78,6 +86,8 @@ AL2O3_EXTERN_C void Render_BufferDestroy(Render_RendererHandle renderer, Render_
 AL2O3_EXTERN_C void Render_GraphicsEncoderDestroy(Render_RendererHandle renderer, Render_GraphicsEncoderHandle buffer);
 AL2O3_EXTERN_C void Render_ComputeEncoderDestroy(Render_RendererHandle renderer, Render_ComputeEncoderHandle buffer);
 AL2O3_EXTERN_C void Render_BlitEncoderDestroy(Render_RendererHandle renderer, Render_BlitEncoderHandle buffer);
+AL2O3_EXTERN_C void Render_ShaderObjectDestroy(Render_RendererHandle renderer, Render_ShaderObjectHandle shader);
+AL2O3_EXTERN_C void Render_ShaderDestroy(Render_RendererHandle renderer, Render_ShaderHandle shader);
 
 // stock interface
 

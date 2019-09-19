@@ -26,6 +26,7 @@ set(Interface
 		blitencoder.h
 		buffer.h
 		computeencoder.h
+		shader.h
 		view.h
 		framebuffer.h
 		graphicsencoder.h

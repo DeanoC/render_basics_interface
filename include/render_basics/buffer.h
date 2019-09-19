@@ -24,8 +24,9 @@ typedef struct Render_BufferUniformDesc {
 typedef struct Render_BufferUpdateDesc {
 	void const *data;
 	uint64_t dstOffset;
-	uint64_t size;    // If 0, uses size of pBuffer
+	uint64_t size;
 } Render_BufferUpdateDesc;
 
-// helper that handle the upload of buffers managing queues etc
+// helper that handle the upload of buffers managing queues etc.
+// If frequentlyUpdated it will write to a new space to not stall the GPU
 AL2O3_EXTERN_C void Render_BufferUpload(Render_BufferHandle buffer, Render_BufferUpdateDesc const *update);
