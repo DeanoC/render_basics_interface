@@ -41,6 +41,31 @@ typedef enum Render_QueueType {
 	Render_QT_BLITTER
 } Render_QueueType;
 
+typedef enum Render_BufferTransitionType {
+	Render_BTT_UNDEFINED = 0,
+	Render_BTT_VERTEX_OR_CONSTANT_BUFFER = 0x1,
+	Render_BTT_INDEX_BUFFER = 0x2,
+	Render_BTT_UNORDERED_ACCESS = 0x4,
+	Render_BTT_INDIRECT_ARGUMENT = 0x8,
+	Render_BTT_COPY_DEST = 0x10,
+	Render_BTT_COPY_SOURCE = 0x20,
+
+	Render_BTT_MAX = Render_BTT_COPY_SOURCE
+} Render_BufferTransitionType;
+
+typedef enum Render_TextureTransitionType {
+	Render_TTT_UNDEFINED = 0,
+	Render_TTT_RENDER_TARGET = 0x1,
+	Render_TTT_UNORDERED_ACCESS = 0x2,
+	Render_TTT_DEPTH_WRITE = 0x4,
+	Render_TTT_DEPTH_READ = 0x8,
+	Render_TTT_COPY_DEST = 0x10,
+	Render_TTT_COPY_SOURCE = 0x20,
+	Render_TTT_PRESENT = 0x40,
+
+	Render_TTT_MAX = Render_TTT_PRESENT
+} Render_TextureTransitionType;
+
 struct Render_FrameBufferDesc; // forward decl. Definition in framebuffer.h
 struct Render_BufferVertexDesc; // forward decl. Definition in buffer.h
 struct Render_BufferIndexDesc; // forward decl. Definition in buffer.h

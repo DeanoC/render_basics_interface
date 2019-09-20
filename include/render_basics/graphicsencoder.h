@@ -80,3 +80,11 @@ AL2O3_EXTERN_C void Render_GraphicsEncoderDrawIndexedInstanced(Render_GraphicsEn
 																															 uint32_t instanceCount,
 																															 uint32_t firstVertex,
 																															 uint32_t firstInstance);
+
+AL2O3_EXTERN_C void Render_GraphicsEncoderTransition(Render_GraphicsEncoderHandle encoder,
+																										 uint32_t numBuffers,
+																										 Render_BufferHandle const *buffers,
+																										 Render_BufferTransitionType const *bufferTransitions,
+																										 uint32_t numTextures,
+																										 Render_TextureHandle const *textures,
+																										 Render_TextureTransitionType const *textureTransitions);
