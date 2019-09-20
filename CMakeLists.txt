@@ -26,10 +26,13 @@ set(Interface
 		blitencoder.h
 		buffer.h
 		computeencoder.h
-		shader.h
-		view.h
 		framebuffer.h
 		graphicsencoder.h
+		pipeline.h
+		shader.h
+		texture.h
+		rootsignature.h
+		view.h
 		)
 
 set(Deps

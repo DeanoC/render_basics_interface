@@ -39,3 +39,4 @@ AL2O3_EXTERN_C void Render_FrameBufferPresent(Render_FrameBufferHandle frameBuff
 AL2O3_EXTERN_C TinyImageFormat Render_FrameBufferColourFormat(Render_FrameBufferHandle frameBuffer);
 // will return TinyImageFormat_UNDEFINED if this framebuffer doesn't have a depth buffer
 AL2O3_EXTERN_C TinyImageFormat Render_FrameBufferDepthFormat(Render_FrameBufferHandle frameBuffer);
+AL2O3_EXTERN_C float const *Render_FrameBufferImguiScaleOffsetMatrix(Render_FrameBufferHandle frameBuffer);

@@ -3,6 +3,29 @@
 #include "al2o3_platform/platform.h"
 #include "render_basics/api.h"
 
+typedef enum Render_DescriptorType {
+	Render_DT_TEXTURE,
+	Render_DT_SAMPLER,
+	Render_DT_BUFFER,
+	Render_DT_ROOT_CONSTANT
+} Render_DescriptorType;
+
+typedef struct Render_DescriptorDesc {
+	char const *name;
+
+	Render_DescriptorType type;
+	uint64_t offset;
+	uint64_t size; // for buffers
+
+	union {
+		Render_TextureHandle texture;
+		Render_SamplerHandle sampler;
+		Render_BufferHandle buffer;
+		void const *rootConstant;
+		//		TheForge_AcclerationStructureHandle const* pAccelerationStructures;
+	};
+} Render_DescriptorDesc;
+
 AL2O3_EXTERN_C void Render_GraphicsEncoderBindRenderTargets(Render_GraphicsEncoderHandle encoder,
 																														uint32_t count,
 																														Render_RenderTargetHandle *targets,
@@ -31,7 +54,29 @@ AL2O3_EXTERN_C void Render_GraphicsEncoderSetViewport(Render_GraphicsEncoderHand
 																											Math_Vec4F_t rect,
 																											Math_Vec2F_t depth);
 AL2O3_EXTERN_C void Render_GraphicsEncoderBindDescriptors(Render_GraphicsEncoderHandle encoder,
-																								Render_DescriptorBinderHandle descriptorBinder,
-																								Render_RootSignatureHandle rootSignature,
-																								uint32_t numDescriptors,
-																								Render_DescriptorDesc *desc);
+																													Render_DescriptorBinderHandle descriptorBinder,
+																													Render_RootSignatureHandle rootSignature,
+																													uint32_t numDescriptors,
+																													Render_DescriptorDesc *desc);
+
+AL2O3_EXTERN_C void Render_GraphicsEncoderBindPipeline(Render_GraphicsEncoderHandle encoder,
+																											 Render_GraphicsPipelineHandle pipeline);
+
+AL2O3_EXTERN_C void Render_GraphicsEncoderDraw(Render_GraphicsEncoderHandle encoder,
+																							 uint32_t vertexCount,
+																							 uint32_t firstVertex);
+AL2O3_EXTERN_C void Render_GraphicsEncoderDrawInstanced(Render_GraphicsEncoderHandle encoder,
+																												uint32_t vertexCount,
+																												uint32_t firstVertex,
+																												uint32_t instanceCount,
+																												uint32_t firstInstance);
+AL2O3_EXTERN_C void Render_GraphicsEncoderDrawIndexed(Render_GraphicsEncoderHandle encoder,
+																											uint32_t indexCount,
+																											uint32_t firstIndex,
+																											uint32_t firstVertex);
+AL2O3_EXTERN_C void Render_GraphicsEncoderDrawIndexedInstanced(Render_GraphicsEncoderHandle encoder,
+																															 uint32_t indexCount,
+																															 uint32_t firstIndex,
+																															 uint32_t instanceCount,
+																															 uint32_t firstVertex,
+																															 uint32_t firstInstance);

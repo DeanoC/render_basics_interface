@@ -20,9 +20,11 @@ typedef struct Render_Buffer *Render_BufferHandle;
 typedef struct Render_CmdPool *Render_CmdPoolHandle;
 typedef struct Render_Cmd *Render_CmdHandle;
 typedef struct Render_ComputeEncoder *Render_ComputeEncoderHandle;
+typedef struct Render_ComputePipeline *Render_ComputePipelineHandle;
 typedef struct Render_DepthState *Render_DepthStateHandle;
 typedef struct Render_DescriptorBinder *Render_DescriptorBinderHandle;
 typedef struct Render_GraphicsEncoder *Render_GraphicsEncoderHandle;
+typedef struct Render_GraphicsPipeline *Render_GraphicsPipelineHandle;
 typedef struct Render_Queue *Render_QueueHandle;
 typedef struct Render_RasteriserState *Render_RasteriserStateHandle;
 typedef struct Render_RenderTarget *Render_RenderTargetHandle;
@@ -44,7 +46,18 @@ struct Render_BufferVertexDesc; // forward decl. Definition in buffer.h
 struct Render_BufferIndexDesc; // forward decl. Definition in buffer.h
 struct Render_BufferUniformDesc; // forward decl. Definition in buffer.h
 struct Render_ShaderObjectDesc; // forward decl. Definition in shader.h
-struct Render_ShaderDesc; // forward decl. Definition in shader.h
+struct Render_RootSignatureDesc; // forward decl. Definition in rootsignature.h
+struct Render_GraphicsPipelineDesc; // forward decl. Definition in pipeline.h
+struct Render_ComputePipelineDesc; // forward decl. Definition in pipeline.h
+struct Render_TextureCreateDesc; // forward decl. Definition in texture.h
+
+
+// TODO I don't really like this API its unclear to me but for now
+typedef struct Render_DescriptorBinderDesc {
+	Render_RootSignatureHandle rootSignature;
+	uint32_t maxDynamicUpdatesPerBatch;
+	uint32_t maxDynamicUpdatesPerDraw;
+} Render_DescriptorBinderDesc;
 
 // for debugging input context is required. if null renderer input will be disabled
 AL2O3_EXTERN_C Render_RendererHandle Render_RendererCreate(InputBasic_ContextHandle input);
@@ -79,6 +92,20 @@ AL2O3_EXTERN_C Render_ShaderObjectHandle Render_ShaderObjectCreate(Render_Render
 AL2O3_EXTERN_C Render_ShaderHandle Render_ShaderCreate(Render_RendererHandle renderer,
 																											 uint32_t count,
 																											 Render_ShaderObjectHandle *shaderObjects);
+AL2O3_EXTERN_C Render_RootSignatureHandle Render_RootSignatureCreate(Render_RendererHandle renderer,
+																																		 Render_RootSignatureDesc const *desc);
+AL2O3_EXTERN_C Render_GraphicsPipelineHandle Render_GraphicsPipelineCreate(Render_RendererHandle renderer,
+																																					 Render_GraphicsPipelineDesc const *desc);
+AL2O3_EXTERN_C Render_ComputePipelineHandle Render_ComputePipelineCreate(Render_RendererHandle renderer,
+																																				 Render_ComputePipelineDesc const *desc);
+
+AL2O3_EXTERN_C Render_TextureHandle Render_TextureSyncCreate(Render_RendererHandle renderer,
+																														 Render_TextureCreateDesc const *desc);
+
+AL2O3_EXTERN_C Render_DescriptorBinderHandle Render_DescriptorBinderCreate(Render_RendererHandle renderer,
+																																					 uint32_t descCount,
+																																					 Render_DescriptorBinderDesc const *descs);
+
 
 // destruction functions
 AL2O3_EXTERN_C void Render_RendererDestroy(Render_RendererHandle renderer);
@@ -89,6 +116,15 @@ AL2O3_EXTERN_C void Render_ComputeEncoderDestroy(Render_RendererHandle renderer,
 AL2O3_EXTERN_C void Render_BlitEncoderDestroy(Render_RendererHandle renderer, Render_BlitEncoderHandle buffer);
 AL2O3_EXTERN_C void Render_ShaderObjectDestroy(Render_RendererHandle renderer, Render_ShaderObjectHandle shaderObject);
 AL2O3_EXTERN_C void Render_ShaderDestroy(Render_RendererHandle renderer, Render_ShaderHandle shader);
+AL2O3_EXTERN_C void Render_RootSignatureDestroy(Render_RendererHandle renderer,
+																								Render_RootSignatureHandle rootSignature);
+AL2O3_EXTERN_C void Render_GraphicsPipelineDestroy(Render_RendererHandle renderer,
+																									 Render_GraphicsPipelineHandle pipeline);
+AL2O3_EXTERN_C void Render_ComputePipelineDestroy(Render_RendererHandle renderer,
+																									Render_ComputePipelineHandle pipeline);
+AL2O3_EXTERN_C void Render_TextureDestroy(Render_RendererHandle renderer, Render_TextureHandle texture);
+AL2O3_EXTERN_C void Render_DescriptorBinderDestroy(Render_RendererHandle renderer,
+																									 Render_DescriptorBinderHandle descBinder);
 
 // stock interface
 

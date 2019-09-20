@@ -1,6 +1,7 @@
 #pragma once
 
 #include "al2o3_platform/platform.h"
+#include "al2o3_vfile/vfile.h"
 #include "render_basics/api.h"
 
 // not all types of shader will be supported on all languages etc.
