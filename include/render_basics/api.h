@@ -94,6 +94,11 @@ AL2O3_EXTERN_C Render_QueueHandle Render_RendererGetPrimaryQueue(Render_Renderer
 																																 Render_QueueType queueType);
 AL2O3_EXTERN_C Render_CmdPoolHandle Render_RendererGetPrimaryCommandPool(Render_RendererHandle renderer,
 																																				 Render_QueueType queueType);
+AL2O3_EXTERN_C bool Render_RendererCanShaderReadFrom(Render_RendererHandle renderer, TinyImageFormat format);
+AL2O3_EXTERN_C bool Render_RendererCanColourWriteTo(Render_RendererHandle renderer, TinyImageFormat format);
+AL2O3_EXTERN_C bool Render_RendererCanShaWriteTo(Render_RendererHandle renderer, TinyImageFormat format);
+
+AL2O3_EXTERN_C void Render_QueueWaitIdle(Render_QueueHandle queue);
 
 // creation functions
 AL2O3_EXTERN_C Render_FrameBufferHandle Render_FrameBufferCreate(Render_RendererHandle renderer,

@@ -38,8 +38,8 @@ typedef struct Render_TextureCreateDesc {
 	uint32_t sampleCount; // 0 same as 1 (no extra samples)
 	uint32_t sampleQuality;
 	void const *initialData;
-	Render_ClearValue renderTargetClearValue;
 	char const *debugName;
+	Render_ClearValue renderTargetClearValue;
 } Render_TextureCreateDesc;
 
 typedef struct Render_TextureUpdateDesc {
