@@ -9,7 +9,6 @@ typedef struct Render_FrameBufferDesc {
 	Render_CmdPoolHandle commandPool;  ///< pool to use for new frame cmd
 	uint32_t frameBufferWidth;          ///< size of the framebuffer horizontally in pixels
 	uint32_t frameBufferHeight;          ///< size of the framebuffer vertically in pixels
-	uint32_t frameBufferCount;          ///< how many frames can be buffered
 	TinyImageFormat colourFormat;        ///< swap chain format, UNDEFINED == platform recommended
 	TinyImageFormat depthFormat;        ///< swap chain depth format, UNDEFINED == none
 

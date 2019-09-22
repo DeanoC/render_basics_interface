@@ -26,6 +26,7 @@ set(Interface
 		blitencoder.h
 		buffer.h
 		computeencoder.h
+		descriptorset.h
 		framebuffer.h
 		graphicsencoder.h
 		pipeline.h
