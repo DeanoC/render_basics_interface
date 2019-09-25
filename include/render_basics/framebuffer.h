@@ -3,6 +3,8 @@
 #include "al2o3_platform/platform.h"
 #include "render_basics/api.h"
 
+struct Render_View;
+
 typedef struct Render_FrameBufferDesc {
 	void *platformHandle;                ///< platform specific for the window/display (HWND etc.)
 	Render_QueueHandle queue;            ///< queue present will be from
@@ -30,6 +32,7 @@ AL2O3_EXTERN_C void Render_FrameBufferNewFrame(Render_FrameBufferHandle frameBuf
 // these need to be called after new frame is started as the targets will change!
 AL2O3_EXTERN_C Render_RenderTargetHandle Render_FrameBufferColourTarget(Render_FrameBufferHandle frameBuffer);
 AL2O3_EXTERN_C Render_RenderTargetHandle Render_FrameBufferDepthTarget(Render_FrameBufferHandle frameBuffer);
+AL2O3_EXTERN_C void Render_SetFrameBufferDebugView(Render_FrameBufferHandle frameBuffer, Render_View const *view);
 
 AL2O3_EXTERN_C Render_GraphicsEncoderHandle Render_FrameBufferGraphicsEncoder(Render_FrameBufferHandle frameBuffer);
 

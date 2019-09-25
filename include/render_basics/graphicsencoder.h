@@ -29,10 +29,10 @@ AL2O3_EXTERN_C void Render_GraphicsEncoderBindIndexBuffer(Render_GraphicsEncoder
 																													Render_BufferHandle indexBuffer,
 																													uint64_t offset);
 
-AL2O3_EXTERN_C void Render_GraphicsEncoderSetScissor(Render_GraphicsEncoderHandle encoder, Math_Vec4U32_t rect);
+AL2O3_EXTERN_C void Render_GraphicsEncoderSetScissor(Render_GraphicsEncoderHandle encoder, Math_Vec4U32 rect);
 AL2O3_EXTERN_C void Render_GraphicsEncoderSetViewport(Render_GraphicsEncoderHandle encoder,
-																											Math_Vec4F_t rect,
-																											Math_Vec2F_t depth);
+																											Math_Vec4F rect,
+																											Math_Vec2F depth);
 AL2O3_EXTERN_C void Render_GraphicsEncoderBindDescriptorSet(Render_GraphicsEncoderHandle encoder,
 																														Render_DescriptorSetHandle descriptorBinder,
 																														uint32_t setIndex);
