@@ -15,6 +15,7 @@ typedef struct Render_View {
 
 } Render_View;
 
+
 typedef struct Render_GpuView {
 	Math_Mat4F worldToViewMatrix;
 	Math_Mat4F viewToNDCMatrix;
