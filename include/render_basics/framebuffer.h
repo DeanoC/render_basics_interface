@@ -2,7 +2,7 @@
 
 #include "al2o3_platform/platform.h"
 #include "render_basics/api.h"
-
+#include "al2o3_cmath/vector.h"
 struct Render_View;
 
 typedef struct Render_FrameBufferDesc {
