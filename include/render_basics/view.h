@@ -5,7 +5,7 @@
 typedef struct Render_View {
 	Math_Vec3F position;  // world space position
 	Math_Vec3F lookAt;    // world space position
-	float barrelRoll;  // rotation around axial look vector
+	Math_Vec3F upVector;  // world space up vector
 
 	float perspectiveFOV; // in radians
 	float perspectiveAspectWoverH;
