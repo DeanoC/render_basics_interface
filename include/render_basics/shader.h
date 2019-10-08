@@ -24,3 +24,9 @@ typedef struct Render_ShaderObjectDesc {
 	char const *entryPoint;
 } Render_ShaderObjectDesc;
 
+// helper for the standard vertex + fragment shader from VFiles
+AL2O3_EXTERN_C  Render_ShaderHandle Render_CreateShaderFromVFile(Render_RendererHandle renderer,
+																																 VFile_Handle vertexFile,
+																																 char const * vertexEntryPoint,
+																																 VFile_Handle fragmentFile,
+																																 char const * fragmentEntryPoint );
