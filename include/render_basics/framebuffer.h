@@ -23,7 +23,6 @@ typedef struct Render_FrameBufferDesc {
 AL2O3_EXTERN_C void Render_FrameBufferUpdate(Render_FrameBufferHandle frameBuffer,
 																						 uint32_t width,
 																						 uint32_t height,
-																						 float backingScaleX, float backingScaleY,
 																						 double deltaMS);
 
 // must be called at the begining of a frame

@@ -96,7 +96,11 @@ AL2O3_EXTERN_C bool Render_RendererCanShaderReadFrom(Render_RendererHandle rende
 AL2O3_EXTERN_C bool Render_RendererCanColourWriteTo(Render_RendererHandle renderer, TinyImageFormat format);
 AL2O3_EXTERN_C bool Render_RendererCanShaWriteTo(Render_RendererHandle renderer, TinyImageFormat format);
 
+AL2O3_EXTERN_C void Render_RendererStartGpuCapture(Render_RendererHandle renderer, char const* filename);
+AL2O3_EXTERN_C void Render_RendererEndGpuCapture(Render_RendererHandle renderer);
+
 AL2O3_EXTERN_C void Render_QueueWaitIdle(Render_QueueHandle queue);
+
 
 // creation functions
 AL2O3_EXTERN_C Render_FrameBufferHandle Render_FrameBufferCreate(Render_RendererHandle renderer,
