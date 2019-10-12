@@ -33,6 +33,8 @@ AL2O3_EXTERN_C Render_RenderTargetHandle Render_FrameBufferColourTarget(Render_F
 AL2O3_EXTERN_C Render_RenderTargetHandle Render_FrameBufferDepthTarget(Render_FrameBufferHandle frameBuffer);
 AL2O3_EXTERN_C void Render_SetFrameBufferDebugView(Render_FrameBufferHandle frameBuffer, Render_View const *view);
 
+AL2O3_EXTERN_C void Render_FrameBufferResize(Render_FrameBufferHandle frameBuffer, uint32_t width, uint32_t height);
+
 AL2O3_EXTERN_C Render_GraphicsEncoderHandle Render_FrameBufferGraphicsEncoder(Render_FrameBufferHandle frameBuffer);
 
 AL2O3_EXTERN_C void Render_FrameBufferPresent(Render_FrameBufferHandle frameBuffer);
