@@ -8,7 +8,7 @@
 
 AL2O3_EXTERN_C void Render_GraphicsEncoderBindRenderTargets(Render_GraphicsEncoderHandle encoder,
 																														uint32_t count,
-																														Render_RenderTargetHandle *targets,
+																														Render_TextureHandle *targets,
 																														bool clear,
 																														bool setViewports,
 																														bool setScissors);

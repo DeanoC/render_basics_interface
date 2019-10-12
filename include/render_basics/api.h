@@ -27,7 +27,6 @@ typedef struct Render_GraphicsEncoder *Render_GraphicsEncoderHandle;
 typedef struct Render_GraphicsPipeline *Render_GraphicsPipelineHandle;
 typedef struct Render_Queue *Render_QueueHandle;
 typedef struct Render_RasteriserState *Render_RasteriserStateHandle;
-typedef struct Render_RenderTarget *Render_RenderTargetHandle;
 typedef struct Render_RootSignature *Render_RootSignatureHandle;
 typedef struct Render_Sampler *Render_SamplerHandle;
 typedef struct Render_ShaderObject *Render_ShaderObjectHandle;
@@ -62,20 +61,20 @@ typedef enum Render_TextureTransitionType {
 	Render_TTT_COPY_DEST = 0x10,
 	Render_TTT_COPY_SOURCE = 0x20,
 	Render_TTT_PRESENT = 0x40,
-
-	Render_TTT_MAX = Render_TTT_PRESENT
+	RENDER_TTT_SHADER_ACCESS = 0x80,
+	Render_TTT_MAX = RENDER_TTT_SHADER_ACCESS
 } Render_TextureTransitionType;
 
-struct Render_FrameBufferDesc; // forward decl. Definition in framebuffer.h
-struct Render_BufferVertexDesc; // forward decl. Definition in buffer.h
-struct Render_BufferIndexDesc; // forward decl. Definition in buffer.h
-struct Render_BufferUniformDesc; // forward decl. Definition in buffer.h
-struct Render_ShaderObjectDesc; // forward decl. Definition in shader.h
-struct Render_RootSignatureDesc; // forward decl. Definition in rootsignature.h
-struct Render_GraphicsPipelineDesc; // forward decl. Definition in pipeline.h
-struct Render_ComputePipelineDesc; // forward decl. Definition in pipeline.h
-struct Render_TextureCreateDesc; // forward decl. Definition in texture.h
-struct Render_DescriptorSetDesc; // forward decl. Defination in descriptorset.h
+typedef struct Render_FrameBufferDesc Render_FrameBufferDesc; // forward decl. Definition in framebuffer.h
+typedef struct Render_BufferVertexDesc Render_BufferVertexDesc; // forward decl. Definition in buffer.h
+typedef struct Render_BufferIndexDesc Render_BufferIndexDesc; // forward decl. Definition in buffer.h
+typedef struct Render_BufferUniformDesc Render_BufferUniformDesc; // forward decl. Definition in buffer.h
+typedef struct Render_ShaderObjectDesc Render_ShaderObjectDesc; // forward decl. Definition in shader.h
+typedef struct Render_RootSignatureDesc Render_RootSignatureDesc; // forward decl. Definition in rootsignature.h
+typedef struct Render_GraphicsPipelineDesc Render_GraphicsPipelineDesc; // forward decl. Definition in pipeline.h
+typedef struct Render_ComputePipelineDesc Render_ComputePipelineDesc; // forward decl. Definition in pipeline.h
+typedef struct Render_TextureCreateDesc Render_TextureCreateDesc; // forward decl. Definition in texture.h
+typedef struct Render_DescriptorSetDesc Render_DescriptorSetDesc; // forward decl. Defination in descriptorset.h
 
 // for debugging input context is required. if null renderer input will be disabled
 AL2O3_EXTERN_C Render_RendererHandle Render_RendererCreate(InputBasic_ContextHandle input);
