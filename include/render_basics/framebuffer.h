@@ -8,7 +8,6 @@ struct Render_View;
 typedef struct Render_FrameBufferDesc {
 	void *platformHandle;                ///< platform specific for the window/display (HWND etc.)
 	Render_QueueHandle queue;            ///< queue present will be from
-	Render_CmdPoolHandle commandPool;  ///< pool to use for new frame cmd
 	uint32_t frameBufferWidth;          ///< size of the framebuffer horizontally in pixels
 	uint32_t frameBufferHeight;          ///< size of the framebuffer vertically in pixels
 	TinyImageFormat colourFormat;        ///< swap chain format, UNDEFINED == platform recommended
@@ -38,6 +37,5 @@ AL2O3_EXTERN_C Render_GraphicsEncoderHandle Render_FrameBufferGraphicsEncoder(Re
 AL2O3_EXTERN_C void Render_FrameBufferPresent(Render_FrameBufferHandle frameBuffer);
 
 AL2O3_EXTERN_C TinyImageFormat Render_FrameBufferColourFormat(Render_FrameBufferHandle frameBuffer);
-AL2O3_EXTERN_C float const *Render_FrameBufferImguiScaleOffsetMatrix(Render_FrameBufferHandle frameBuffer);
 AL2O3_EXTERN_C Math_Vec4F Render_FrameBufferEntireViewport(Render_FrameBufferHandle frameBuffer);
 AL2O3_EXTERN_C Math_Vec4U32 Render_FrameBufferEntireScissor(Render_FrameBufferHandle frameBuffer);

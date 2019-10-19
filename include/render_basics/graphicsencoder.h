@@ -4,8 +4,6 @@
 #include "al2o3_cmath/vector.h"
 #include "render_basics/api.h"
 
-
-
 AL2O3_EXTERN_C void Render_GraphicsEncoderBindRenderTargets(Render_GraphicsEncoderHandle encoder,
 																														uint32_t count,
 																														Render_TextureHandle *targets,
@@ -38,7 +36,7 @@ AL2O3_EXTERN_C void Render_GraphicsEncoderBindDescriptorSet(Render_GraphicsEncod
 																														uint32_t setIndex);
 
 AL2O3_EXTERN_C void Render_GraphicsEncoderBindPipeline(Render_GraphicsEncoderHandle encoder,
-																											 Render_GraphicsPipelineHandle pipeline);
+																											 Render_PipelineHandle pipeline);
 
 AL2O3_EXTERN_C void Render_GraphicsEncoderDraw(Render_GraphicsEncoderHandle encoder,
 																							 uint32_t vertexCount,

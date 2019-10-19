@@ -10,29 +10,28 @@
 #include "al2o3_platform/platform.h"
 #include "tiny_imageformat/tinyimageformat_base.h"
 #include "input_basic/input.h"
+#include "al2o3_handle/dynamic.h"
 
 typedef struct Render_Renderer *Render_RendererHandle;
-typedef struct Render_FrameBuffer *Render_FrameBufferHandle;
+typedef struct Render_VertexLayout const * Render_VertexLayoutHandle;
 
-typedef struct Render_BlendState *Render_BlendStateHandle;
-typedef struct Render_BlitEncoder *Render_BlitEncoderHandle;
-typedef struct Render_Buffer *Render_BufferHandle;
-typedef struct Render_CmdPool *Render_CmdPoolHandle;
-typedef struct Render_Cmd *Render_CmdHandle;
-typedef struct Render_ComputeEncoder *Render_ComputeEncoderHandle;
-typedef struct Render_ComputePipeline *Render_ComputePipelineHandle;
-typedef struct Render_DepthState *Render_DepthStateHandle;
-typedef struct Render_DescriptorSet *Render_DescriptorSetHandle;
-typedef struct Render_GraphicsEncoder *Render_GraphicsEncoderHandle;
-typedef struct Render_GraphicsPipeline *Render_GraphicsPipelineHandle;
-typedef struct Render_Queue *Render_QueueHandle;
-typedef struct Render_RasteriserState *Render_RasteriserStateHandle;
-typedef struct Render_RootSignature *Render_RootSignatureHandle;
-typedef struct Render_Sampler *Render_SamplerHandle;
-typedef struct Render_ShaderObject *Render_ShaderObjectHandle;
-typedef struct Render_Shader *Render_ShaderHandle;
-typedef struct Render_Texture *Render_TextureHandle;
-typedef struct Render_VertexLayout *Render_VertexLayoutHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_FrameBufferHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_BlendStateHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_BlitEncoderHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_BufferHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_ComputeEncoderHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_DepthStateHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_DescriptorSetHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_GraphicsEncoderHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_QueueHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_RasteriserStateHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_RootSignatureHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_SamplerHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_ShaderObjectHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_ShaderHandle;
+typedef struct { Handle_DynamicHandle32 handle; } Render_TextureHandle;
+
+typedef struct { Handle_DynamicHandle32 handle; } Render_PipelineHandle;
 
 typedef enum Render_QueueType {
 	Render_QT_GRAPHICS,
@@ -89,8 +88,6 @@ AL2O3_EXTERN_C char const *Render_RendererGetBackendName(Render_RendererHandle r
 AL2O3_EXTERN_C char const *Render_RendererGetGPUName(Render_RendererHandle renderer);
 AL2O3_EXTERN_C Render_QueueHandle Render_RendererGetPrimaryQueue(Render_RendererHandle renderer,
 																																 Render_QueueType queueType);
-AL2O3_EXTERN_C Render_CmdPoolHandle Render_RendererGetPrimaryCommandPool(Render_RendererHandle renderer,
-																																				 Render_QueueType queueType);
 AL2O3_EXTERN_C bool Render_RendererCanShaderReadFrom(Render_RendererHandle renderer, TinyImageFormat format);
 AL2O3_EXTERN_C bool Render_RendererCanColourWriteTo(Render_RendererHandle renderer, TinyImageFormat format);
 AL2O3_EXTERN_C bool Render_RendererCanShaWriteTo(Render_RendererHandle renderer, TinyImageFormat format);
@@ -112,12 +109,10 @@ AL2O3_EXTERN_C Render_BufferHandle Render_BufferCreateIndex(Render_RendererHandl
 AL2O3_EXTERN_C Render_BufferHandle Render_BufferCreateUniform(Render_RendererHandle renderer,
 																															Render_BufferUniformDesc const *desc);
 
-AL2O3_EXTERN_C Render_GraphicsEncoderHandle Render_GraphicsEncoderCreate(Render_RendererHandle renderer,
-																																				 Render_CmdPoolHandle cmdPoolHandle);
-AL2O3_EXTERN_C Render_ComputeEncoderHandle Render_ComputeEncoderCreate(Render_RendererHandle renderer,
-																																			 Render_CmdPoolHandle cmdPoolHandle);
-AL2O3_EXTERN_C Render_BlitEncoderHandle Render_BlitEncoderCreate(Render_RendererHandle renderer,
-																																 Render_CmdPoolHandle cmdPoolHandle);
+AL2O3_EXTERN_C Render_GraphicsEncoderHandle Render_GraphicsEncoderCreate(Render_RendererHandle renderer);
+AL2O3_EXTERN_C Render_ComputeEncoderHandle Render_ComputeEncoderCreate(Render_RendererHandle renderer);
+AL2O3_EXTERN_C Render_BlitEncoderHandle Render_BlitEncoderCreate(Render_RendererHandle renderer);
+
 AL2O3_EXTERN_C Render_ShaderObjectHandle Render_ShaderObjectCreate(Render_RendererHandle renderer,
 																																	 Render_ShaderObjectDesc const *desc);
 AL2O3_EXTERN_C Render_ShaderHandle Render_ShaderCreate(Render_RendererHandle renderer,
@@ -125,9 +120,9 @@ AL2O3_EXTERN_C Render_ShaderHandle Render_ShaderCreate(Render_RendererHandle ren
 																											 Render_ShaderObjectHandle *shaderObjects);
 AL2O3_EXTERN_C Render_RootSignatureHandle Render_RootSignatureCreate(Render_RendererHandle renderer,
 																																		 Render_RootSignatureDesc const *desc);
-AL2O3_EXTERN_C Render_GraphicsPipelineHandle Render_GraphicsPipelineCreate(Render_RendererHandle renderer,
+AL2O3_EXTERN_C Render_PipelineHandle Render_GraphicsPipelineCreate(Render_RendererHandle renderer,
 																																					 Render_GraphicsPipelineDesc const *desc);
-AL2O3_EXTERN_C Render_ComputePipelineHandle Render_ComputePipelineCreate(Render_RendererHandle renderer,
+AL2O3_EXTERN_C Render_PipelineHandle Render_ComputePipelineCreate(Render_RendererHandle renderer,
 																																				 Render_ComputePipelineDesc const *desc);
 
 AL2O3_EXTERN_C Render_TextureHandle Render_TextureSyncCreate(Render_RendererHandle renderer,
@@ -139,21 +134,18 @@ AL2O3_EXTERN_C Render_DescriptorSetHandle Render_DescriptorSetCreate(Render_Rend
 
 // destruction functions
 AL2O3_EXTERN_C void Render_RendererDestroy(Render_RendererHandle renderer);
-AL2O3_EXTERN_C void Render_FrameBufferDestroy(Render_RendererHandle renderer, Render_FrameBufferHandle framebuffer);
-AL2O3_EXTERN_C void Render_BufferDestroy(Render_RendererHandle renderer, Render_BufferHandle buffer);
-AL2O3_EXTERN_C void Render_GraphicsEncoderDestroy(Render_RendererHandle renderer, Render_GraphicsEncoderHandle buffer);
-AL2O3_EXTERN_C void Render_ComputeEncoderDestroy(Render_RendererHandle renderer, Render_ComputeEncoderHandle buffer);
-AL2O3_EXTERN_C void Render_BlitEncoderDestroy(Render_RendererHandle renderer, Render_BlitEncoderHandle buffer);
-AL2O3_EXTERN_C void Render_ShaderObjectDestroy(Render_RendererHandle renderer, Render_ShaderObjectHandle shaderObject);
-AL2O3_EXTERN_C void Render_ShaderDestroy(Render_RendererHandle renderer, Render_ShaderHandle shader);
+AL2O3_EXTERN_C void Render_FrameBufferDestroy(Render_RendererHandle renderer, Render_FrameBufferHandle handle);
+AL2O3_EXTERN_C void Render_BufferDestroy(Render_RendererHandle renderer, Render_BufferHandle handle);
+AL2O3_EXTERN_C void Render_GraphicsEncoderDestroy(Render_RendererHandle renderer, Render_GraphicsEncoderHandle handle);
+AL2O3_EXTERN_C void Render_ComputeEncoderDestroy(Render_RendererHandle renderer, Render_ComputeEncoderHandle handle);
+AL2O3_EXTERN_C void Render_BlitEncoderDestroy(Render_RendererHandle renderer, Render_BlitEncoderHandle handle);
+AL2O3_EXTERN_C void Render_ShaderObjectDestroy(Render_RendererHandle renderer, Render_ShaderObjectHandle handle);
+AL2O3_EXTERN_C void Render_ShaderDestroy(Render_RendererHandle renderer, Render_ShaderHandle handle);
 AL2O3_EXTERN_C void Render_RootSignatureDestroy(Render_RendererHandle renderer,
-																								Render_RootSignatureHandle rootSignature);
-AL2O3_EXTERN_C void Render_GraphicsPipelineDestroy(Render_RendererHandle renderer,
-																									 Render_GraphicsPipelineHandle pipeline);
-AL2O3_EXTERN_C void Render_ComputePipelineDestroy(Render_RendererHandle renderer,
-																									Render_ComputePipelineHandle pipeline);
-AL2O3_EXTERN_C void Render_TextureDestroy(Render_RendererHandle renderer, Render_TextureHandle texture);
-AL2O3_EXTERN_C void Render_DescriptorSetDestroy(Render_RendererHandle renderer, Render_DescriptorSetHandle descBinder);
+																								Render_RootSignatureHandle handle);
+AL2O3_EXTERN_C void Render_PipelineDestroy(Render_RendererHandle renderer, Render_PipelineHandle handle);
+AL2O3_EXTERN_C void Render_TextureDestroy(Render_RendererHandle renderer, Render_TextureHandle handle);
+AL2O3_EXTERN_C void Render_DescriptorSetDestroy(Render_RendererHandle renderer, Render_DescriptorSetHandle handle);
 
 // stock interface
 typedef enum Render_StockBlendStateType {
