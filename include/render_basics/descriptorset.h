@@ -39,10 +39,10 @@ typedef struct Render_DescriptorDesc {
 AL2O3_EXTERN_C void Render_DescriptorUpdate(Render_DescriptorSetHandle set,
 																						uint32_t setIndex,
 																						uint32_t numDescriptors,
-																						Render_DescriptorDesc *desc);
+																						Render_DescriptorDesc const *desc);
 
 // if you have frequently updates buffers/etc. and only the data changes *NOT* the binding do this once as an optimization.
 AL2O3_EXTERN_C void Render_DescriptorPresetFrequencyUpdated(Render_DescriptorSetHandle set,
 																														 uint32_t setIndex,
 																														 uint32_t numDescriptors,
-																														 Render_DescriptorDesc *desc);
+																														 Render_DescriptorDesc const *desc);
