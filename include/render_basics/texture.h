@@ -52,4 +52,11 @@ typedef struct Render_TextureUpdateDesc {
 	void const *data;
 } Render_TextureUpdateDesc;
 
-AL2O3_EXTERN_C void Render_TextureSyncUpdate(Render_TextureHandle texture, Render_TextureUpdateDesc const *desc);
+AL2O3_EXTERN_C void Render_TextureSyncUpdate(Render_TextureHandle handle, Render_TextureUpdateDesc const *desc);
+
+AL2O3_EXTERN_C uint32_t Render_TextureGetWidth(Render_TextureHandle handle);
+AL2O3_EXTERN_C uint32_t Render_TextureGetHeight(Render_TextureHandle handle);
+AL2O3_EXTERN_C uint32_t Render_TextureGetDepth(Render_TextureHandle handle);
+AL2O3_EXTERN_C uint32_t Render_TextureGetSliceCount(Render_TextureHandle handle);
+AL2O3_EXTERN_C uint32_t Render_TextureGetMipLevelCount(Render_TextureHandle handle);
+AL2O3_EXTERN_C TinyImageFormat Render_TextureGetFormat(Render_TextureHandle handle);
