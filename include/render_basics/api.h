@@ -10,28 +10,28 @@
 #include "al2o3_platform/platform.h"
 #include "tiny_imageformat/tinyimageformat_base.h"
 #include "input_basic/input.h"
-#include "al2o3_handle/dynamic.h"
+#include "al2o3_handle/handle.h"
 
 typedef struct Render_Renderer *Render_RendererHandle;
 typedef struct Render_VertexLayout const * Render_VertexLayoutHandle;
 
-typedef struct { Handle_DynamicHandle32 handle; } Render_FrameBufferHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_BlendStateHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_BlitEncoderHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_BufferHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_ComputeEncoderHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_DepthStateHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_DescriptorSetHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_GraphicsEncoderHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_QueueHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_RasteriserStateHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_RootSignatureHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_SamplerHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_ShaderObjectHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_ShaderHandle;
-typedef struct { Handle_DynamicHandle32 handle; } Render_TextureHandle;
+typedef struct { Handle_Handle32 handle; } Render_FrameBufferHandle;
+typedef struct { Handle_Handle32 handle; } Render_BlendStateHandle;
+typedef struct { Handle_Handle32 handle; } Render_BlitEncoderHandle;
+typedef struct { Handle_Handle32 handle; } Render_BufferHandle;
+typedef struct { Handle_Handle32 handle; } Render_ComputeEncoderHandle;
+typedef struct { Handle_Handle32 handle; } Render_DepthStateHandle;
+typedef struct { Handle_Handle32 handle; } Render_DescriptorSetHandle;
+typedef struct { Handle_Handle32 handle; } Render_GraphicsEncoderHandle;
+typedef struct { Handle_Handle32 handle; } Render_QueueHandle;
+typedef struct { Handle_Handle32 handle; } Render_RasteriserStateHandle;
+typedef struct { Handle_Handle32 handle; } Render_RootSignatureHandle;
+typedef struct { Handle_Handle32 handle; } Render_SamplerHandle;
+typedef struct { Handle_Handle32 handle; } Render_ShaderObjectHandle;
+typedef struct { Handle_Handle32 handle; } Render_ShaderHandle;
+typedef struct { Handle_Handle32 handle; } Render_TextureHandle;
 
-typedef struct { Handle_DynamicHandle32 handle; } Render_PipelineHandle;
+typedef struct { Handle_Handle32 handle; } Render_PipelineHandle;
 
 typedef enum Render_QueueType {
 	Render_QT_GRAPHICS,
