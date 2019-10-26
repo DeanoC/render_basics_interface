@@ -33,6 +33,23 @@ typedef struct { Handle_Handle32 handle; } Render_TextureHandle;
 
 typedef struct { Handle_Handle32 handle; } Render_PipelineHandle;
 
+AL2O3_EXTERN_C bool Render_FrameBufferHandleIsValid(Render_FrameBufferHandle handle);
+AL2O3_EXTERN_C bool Render_BlendStateHandleIsValid(Render_BlendStateHandle handle);
+AL2O3_EXTERN_C bool Render_BlitEncoderHandleIsValid(Render_BlitEncoderHandle handle);
+AL2O3_EXTERN_C bool Render_BufferHandleIsValid(Render_BufferHandle handle);
+AL2O3_EXTERN_C bool Render_ComputeEncoderHandleIsValid(Render_ComputeEncoderHandle handle);
+AL2O3_EXTERN_C bool Render_DepthStateHandleIsValid(Render_DepthStateHandle handle);
+AL2O3_EXTERN_C bool Render_DescriptorSetHandleIsValid(Render_DescriptorSetHandle handle);
+AL2O3_EXTERN_C bool Render_GraphicsEncoderHandleIsValid(Render_GraphicsEncoderHandle handle);
+AL2O3_EXTERN_C bool Render_QueueHandleIsValid(Render_QueueHandle handle);
+AL2O3_EXTERN_C bool Render_RasteriserStateHandleIsValid(Render_RasteriserStateHandle handle);
+AL2O3_EXTERN_C bool Render_RootSignatureHandleIsValid(Render_RootSignatureHandle handle);
+AL2O3_EXTERN_C bool Render_SamplerHandleIsValid(Render_SamplerHandle handle);
+AL2O3_EXTERN_C bool Render_ShaderObjectHandleIsValid(Render_ShaderObjectHandle handle);
+AL2O3_EXTERN_C bool Render_ShaderHandleIsValid(Render_ShaderHandle handle);
+AL2O3_EXTERN_C bool Render_TextureHandleIsValid(Render_TextureHandle handle);
+AL2O3_EXTERN_C bool Render_PipelineHandleIsValid(Render_PipelineHandle handle);
+
 typedef enum Render_QueueType {
 	Render_QT_GRAPHICS,
 	Render_QT_COMPUTE,

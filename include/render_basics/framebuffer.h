@@ -39,3 +39,5 @@ AL2O3_EXTERN_C void Render_FrameBufferPresent(Render_FrameBufferHandle frameBuff
 AL2O3_EXTERN_C TinyImageFormat Render_FrameBufferColourFormat(Render_FrameBufferHandle frameBuffer);
 AL2O3_EXTERN_C Math_Vec4F Render_FrameBufferEntireViewport(Render_FrameBufferHandle frameBuffer);
 AL2O3_EXTERN_C Math_Vec4U32 Render_FrameBufferEntireScissor(Render_FrameBufferHandle frameBuffer);
+
+AL2O3_EXTERN_C float const* Render_FrameBufferImguiScaleOffsetMatrix(Render_FrameBufferHandle frameBuffer);
