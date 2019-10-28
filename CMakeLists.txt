@@ -39,6 +39,7 @@ set(Deps
 		al2o3_cmath
 		al2o3_handle
 		input_basic_interface
+		tiny_imageformat
 		)
 ADD_LINK_TIME_INTERFACE(${BaseInterfaceName} "${Interface}" "${Deps}")
 
