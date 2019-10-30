@@ -1,6 +1,7 @@
 #pragma once
 
 #include "al2o3_cmath/vector.h"
+#include "al2o3_cmath/matrix.h"
 
 typedef struct Render_View {
 	Math_Vec3F position;  // world space position
