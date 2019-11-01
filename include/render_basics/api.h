@@ -175,11 +175,11 @@ typedef enum Render_StockBlendStateType {
 } Render_StockBlendStateType;
 
 typedef enum Render_StockDepthStateType {
-	Render_SDS_IGNORE, // complete ignore (no read or write) any depth buffer
+	Render_SDS_IGNORE, // complete ignore (no read or write) on depth buffer
 	Render_SDS_READONLY_LESS, // test the depth buffer, less comparision
-	Render_SDS_READWRITE_LESS, // test as read only less and also write the depth buffer
+	Render_SDS_READWRITE_LESS, // test as less and also write the depth buffer
 	Render_SDS_READONLY_GREATER, // test the depth buffer, greater comparision
-	Render_SDS_READWRITE_GREATER, // test as read only greater and also write the depth buffer
+	Render_SDS_READWRITE_GREATER, // test as greater and also write the depth buffer
 	Render_SDS_WRITEONLY, // write the depth buffer unconditionally
 	Render_SDS_COUNT
 } Render_StockDepthStateType;
