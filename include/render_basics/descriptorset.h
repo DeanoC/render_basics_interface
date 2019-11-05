@@ -4,7 +4,6 @@ typedef enum Render_DescriptorType {
 	Render_DT_TEXTURE,
 	Render_DT_SAMPLER,
 	Render_DT_BUFFER,
-	Render_DT_ROOT_CONSTANT
 } Render_DescriptorType;
 
 typedef enum Render_DescriptorUpdateFrequency {
@@ -31,7 +30,6 @@ typedef struct Render_DescriptorDesc {
 		Render_TextureHandle texture;
 		Render_SamplerHandle sampler;
 		Render_BufferHandle buffer;
-		void const *rootConstant;
 		//		TheForge_AcclerationStructureHandle const* pAccelerationStructures;
 	};
 } Render_DescriptorDesc;
