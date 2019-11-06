@@ -22,3 +22,5 @@ typedef struct Render_GpuView {
 	Math_Mat4F viewToNDCMatrix;
 	Math_Mat4F worldToNDCMatrix;
 } Render_GpuView;
+
+static const int UNIFORM_BUFFER_MIN_SIZE = 256; // minimum size allowed
