@@ -211,6 +211,7 @@ typedef enum Render_StockVertexLayouts {
 	Render_SVL_3D_COLOUR_UV, // 3D + packed colour + 2D float UV
 	Render_SVL_3D_FLOATCOLOUR_UV, // 3D + float colour + 2D float UV
 
+	Render_SVL_3D_NORMAL, // 3D + 3D normal
 	Render_SVL_3D_NORMAL_COLOUR, // 3D + 3D normal + packed colour
 
 	Render_SVL_COUNT
