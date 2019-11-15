@@ -19,20 +19,7 @@ set(BaseInterfaceName render_basics)
 set(LibName ${BaseInterfaceName}_interface)
 project(${LibName})
 
-set(Interface
-		api.h
-		blitencoder.h
-		buffer.h
-		computeencoder.h
-		descriptorset.h
-		framebuffer.h
-		graphicsencoder.h
-		pipeline.h
-		shader.h
-		texture.h
-		rootsignature.h
-		view.h
-		)
+file(GLOB_RECURSE Interface CONFIGURE_DEPENDS include/*.h include/*.hpp)
 
 set(Deps
 		al2o3_platform
@@ -41,6 +28,7 @@ set(Deps
 		input_basic_interface
 		tiny_imageformat
 		)
-ADD_LINK_TIME_INTERFACE(${BaseInterfaceName} "${Interface}" "${Deps}")
+
+ADD_LINK_TIME_INTERFACE2(${BaseInterfaceName} "${Interface}" "${Deps}")
 
 
