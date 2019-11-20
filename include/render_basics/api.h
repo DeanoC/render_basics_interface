@@ -50,6 +50,32 @@ AL2O3_EXTERN_C bool Render_ShaderHandleIsValid(Render_ShaderHandle handle);
 AL2O3_EXTERN_C bool Render_TextureHandleIsValid(Render_TextureHandle handle);
 AL2O3_EXTERN_C bool Render_PipelineHandleIsValid(Render_PipelineHandle handle);
 
+typedef enum Render_ROPDepthType {
+	Render_RDT_Z,
+	Render_RDT_ONE_MINUS_Z
+} Render_ROPDepthType;
+
+typedef enum Render_ROPColourType {
+	Render_RCT_RGB_LDR,
+	Render_RCT_RGBA_LDR,
+	Render_RCT_RGB_HDR,
+	Render_RCT_RGBA_HDR,
+
+	// TODO packing?
+	Render_RCT_Albedo,
+	Render_RCT_WorldNormal,
+
+} Render_ROPColourType;
+
+typedef struct Render_ROPLayout {
+	TinyImageFormat depthFormat;
+	Render_ROPDepthType depthType;
+
+	uint32_t colourFormatCount;
+	TinyImageFormat colourFormats[8];
+	Render_ROPColourType colourTypes[8];
+} Render_ROPLayout;
+
 typedef enum Render_QueueType {
 	Render_QT_GRAPHICS,
 	Render_QT_COMPUTE,

@@ -41,3 +41,5 @@ AL2O3_EXTERN_C Math_Vec4F Render_FrameBufferEntireViewport(Render_FrameBufferHan
 AL2O3_EXTERN_C Math_Vec4U32 Render_FrameBufferEntireScissor(Render_FrameBufferHandle frameBuffer);
 
 AL2O3_EXTERN_C float const* Render_FrameBufferImguiScaleOffsetMatrix(Render_FrameBufferHandle frameBuffer);
+
+AL2O3_EXTERN_C void Render_FrameBufferDescribeROPLayout(Render_FrameBufferHandle frameBuffer, Render_ROPLayout* out);
